@@ -30,7 +30,6 @@ pipelines:
       - name: S_DockerPush_5933_010_1
         type: DockerBuild
         configuration:
-          affinityGroup: S_DockerPush_5933_010_1
           dockerImageName: ${artifactory_registry_url}/test-automation-docker-local/s_dockerpush_5933
           dockerImageTag: ${run_id}
           inputResources:
@@ -41,7 +40,6 @@ pipelines:
       - name: S_DockerPush_5933_010_2
         type: DockerPush
         configuration:
-          affinityGroup: S_DockerPush_5933_010_2
           targetRepository: test-automation-docker-local
           inputSteps:
             - name: S_DockerPush_5933_010_1
