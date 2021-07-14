@@ -33,6 +33,7 @@ pipelines:
           releaseBundleName: ${JFROG_CLI_BUILD_NAME}
           releaseBundleVersion: ${run_id}
           dryRun: false
+          sign: true
           description: "My release description"
           inputResources:
             - name: S_CreateReleaseBundle_6237_005_Aql
