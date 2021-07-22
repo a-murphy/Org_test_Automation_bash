@@ -10,6 +10,7 @@ pipelines:
       - name: S_Bash_Util_6379_002_1
         type: Bash
         configuration:
+          nodePool: default_default
           outputResources:
             - name: S_Bash_Util_6379_002_PropertyBag
         execution:
