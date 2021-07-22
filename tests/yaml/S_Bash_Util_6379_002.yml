@@ -1,0 +1,26 @@
+resources:
+  - name: S_Bash_Util_6379_002_PropertyBag
+    type: PropertyBag
+    configuration:
+      property: test
+
+pipelines:
+  - name: pipeline_S_Bash_Util_6379_002
+    steps:
+      - name: S_Bash_Util_6379_002_1
+        type: Bash
+        configuration:
+          outputResources:
+            - name: S_Bash_Util_6379_002_PropertyBag
+        execution:
+          onExecute:
+            - add_run_variables var1="one"
+
+      - name: S_Bash_Util_6379_002_2
+        type: Bash
+        configuration:
+          inputResources:
+            - name: S_Bash_Util_6379_002_PropertyBag
+        execution:
+          onExecute:
+            - if [ "$var1" != "one" ]; then exit 1; fi
